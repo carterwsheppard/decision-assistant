@@ -1,13 +1,17 @@
+import Nav from './components/Nav/'
 
 function App() {
-  return (
-    <div>
-      
-      <main>
-                
-      </main>
-    </div>
-  );
-}
+  
+    return (
+      <div>
+        <Nav></Nav>
+        <main>
+
+        </main>
+        <Footer></Footer>
+      </div>
+    );
+    }
+
 
 export default App;
