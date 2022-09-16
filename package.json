@@ -2,7 +2,6 @@
   "name": "decision-assistant",
   "version": "0.1.0",
   "private": true,
-
   "scripts": {
     "start": "node server/server.js",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
@@ -22,6 +21,7 @@
   },
   "homepage": "https://github.com/carterwsheppard/decision-assistant#readme",
   "dependencies": {
-    "concurrently": "^7.4.0"
+    "concurrently": "^7.4.0",
+    "random-number": "^0.0.9"
   }
 }
