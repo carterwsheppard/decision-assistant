@@ -21,6 +21,14 @@ const userSchema = new Schema (
   }
 )
 
+userSchema.methods.isCorrectPassword = async function(password) {
+  if(password != this.password) {
+    return false
+  }
+
+  return true
+}
+
 const User = model('User', userSchema)
 
 module.exports = User
