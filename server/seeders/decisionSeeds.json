@@ -1,0 +1,10 @@
+[
+  {
+    "decisionText" : "decision text 1",
+    "username" : "tester1"
+  },
+  {
+    "decisionText" : "decision text 2",
+    "username" : "tester1"
+  }
+]

@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express')
-const { User } = require('../models')
+const { User, Decision } = require('../models')
 
 const resolvers = {
   Query: {
@@ -18,6 +18,9 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username })
         .select('-__v -password')
+    },
+    decisions: async () => {
+      return Decision.find()
     }
   },
 
