@@ -23,12 +23,12 @@ function Nav() {
           </li>
           <li className={"mx-2"}>
             <span onClick={() => handleClick()}>
-              My Lists
+              Manage List
             </span>
           </li>
           <li className={"mx-2"}>
             <span onClick={() => handleClick()}>
-            Decision Assistant
+            Decision Time
             </span>
           </li>
         </ul>
