@@ -11,6 +11,7 @@ function App() {
         <RandomPortal></RandomPortal>
         <ListPortal></ListPortal>
         </main>
+        <Footer></Footer>
       </div>
     );
     }
