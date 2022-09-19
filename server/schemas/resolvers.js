@@ -49,8 +49,9 @@ const resolvers = {
       if(!correctPw) {
         throw new AuthenticationError("incorrect email or password") 
       }
-      context
-      return user
+      
+      const token = signToken(user)
+      return { user, token }
     }, 
     addDecision: async (parent, args, context) => {
       console.log(context)
