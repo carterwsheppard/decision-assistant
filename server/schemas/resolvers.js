@@ -46,9 +46,31 @@ const resolvers = {
       if(!correctPw) {
         throw new AuthenticationError("incorrect email or password") 
       }
-
+      context
       return user
-    }
+    }, 
+    addDecision: async (parent, args, context) => {
+      console.log(context)
+      if(context.user) {
+        const decision = await Decision.create({
+          ...args,
+          username: context.user.username
+        })
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $push: { decisions: decision.id } },
+          { new: true }
+        )
+
+        return decision
+      }
+      else {
+        console.log('no user context')
+      }
+
+      throw new AuthenticationError('you need to be logged in')
+    },
   }
 }
 
