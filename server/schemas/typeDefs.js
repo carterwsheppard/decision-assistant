@@ -31,7 +31,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addDecision(decisionText: String!): Decision
     updateDecision(_id: ID!, decisionText: String!): Decision
-    # TODO: remove decision
+    deleteDecision(_id: ID!): Decision
   }
 `
 

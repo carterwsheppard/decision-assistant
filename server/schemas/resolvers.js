@@ -83,6 +83,11 @@ const resolvers = {
       )
 
       return decision
+    },
+    deleteDecision: async (parent, { _id }, context) => {
+      return Decision.findOneAndDelete(
+        { _id: _id }
+      )
     }
   }
 }
