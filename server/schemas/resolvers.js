@@ -75,6 +75,15 @@ const resolvers = {
 
       throw new AuthenticationError('you need to be logged in')
     },
+    updateDecision: async (parent, { _id, decisionText }, context) => {
+      const decision = await Decision.findOneAndUpdate(
+        { _id: _id},
+        { decisionText: decisionText },
+        { new: true }
+      )
+
+      return decision
+    }
   }
 }
 
