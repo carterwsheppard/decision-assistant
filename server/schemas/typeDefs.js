@@ -17,14 +17,16 @@ const typeDefs = gql`
     me: User
     users: [User]
     user(username: String!): User
-    decision(_id: ID!): Decision
     decisions(username: String): [Decision]
+    decision(_id: ID!): Decision
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): User
     login(email: String!, password: String!): User
     addDecision(decisionText: String!): Decision
+    # update decision
+    # remove decision
   }
 `
 

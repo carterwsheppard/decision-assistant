@@ -21,6 +21,10 @@ const resolvers = {
     },
     decisions: async () => {
       return Decision.find()
+    },
+    decision: async(parent, { _id }) => {
+      return Decision.findOne({ _id })
+        .select('-__v')
     }
   },
 
