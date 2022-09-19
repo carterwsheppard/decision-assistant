@@ -21,8 +21,9 @@ const resolvers = {
       return User.findOne({ username })
         .select('-__v -password')
     },
-    decisions: async () => {
-      return Decision.find()
+    decisions: async (parent, { username }) => {
+      const params = username ? { username } : {}
+      return Decision.find(params)
     },
     decision: async(parent, { _id }) => {
       return Decision.findOne({ _id })
