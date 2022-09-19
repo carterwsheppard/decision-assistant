@@ -54,7 +54,7 @@ const resolvers = {
       return { user, token }
     }, 
     addDecision: async (parent, args, context) => {
-      console.log(context)
+      console.log(context.user)
       if(context.user) {
         const decision = await Decision.create({
           ...args,
