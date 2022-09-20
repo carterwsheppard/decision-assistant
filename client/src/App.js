@@ -7,7 +7,6 @@
 // } from '@apollo/client';
 
 import Nav from './components/Nav/'
-import Footer from './components/Footer'
 
 // const httpLink = createHttpLink({
 //   uri: '/graphql'
@@ -27,20 +26,26 @@ import Footer from './components/Footer'
 //   link: authLink.concat(httpLink),
 //   cache: new InMemoryCache()
 // })
+import RandomPortal from './components/RandomPortal';
+import ListPortal from './components/ListPortal';
+import Footer from './components/Footer';
+import Login from './components/LoginSignUpPortal'
+import AddOption from './components/AddOption';
+
 
 function App() {
   
     return (
-      // <ApolloProvider client={client}>
-        <div>
-          <Nav></Nav>
-          <main>
-
-          </main>
-          <Footer></Footer>
-        </div>
-      // </ApolloProvider>
-      
+      <div>
+        <Nav></Nav>
+        <main>
+        <RandomPortal></RandomPortal>
+        <AddOption></AddOption>
+        <ListPortal></ListPortal>
+        <Login></Login>
+        </main>
+        <Footer></Footer>
+      </div>
     );
     }
 
