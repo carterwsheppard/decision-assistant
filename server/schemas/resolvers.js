@@ -1,5 +1,7 @@
 const { AuthenticationError } = require('apollo-server-express')
+
 const { User, Decision } = require('../models')
+const { signToken } = require('../utils/auth')
 
 const resolvers = {
   Query: {
@@ -19,16 +21,22 @@ const resolvers = {
       return User.findOne({ username })
         .select('-__v -password')
     },
-    decisions: async () => {
-      return Decision.find()
+    decisions: async (parent, { username }) => {
+      const params = username ? { username } : {}
+      return Decision.find(params)
+    },
+    decision: async(parent, { _id }) => {
+      return Decision.findOne({ _id })
+        .select('-__v')
     }
   },
 
   Mutation: {
     addUser: async (parent, args) => {
       const user = await User.create(args)
+      const token = signToken(user)
 
-      return user
+      return { token, user }
     }, 
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email })
@@ -42,8 +50,45 @@ const resolvers = {
       if(!correctPw) {
         throw new AuthenticationError("incorrect email or password") 
       }
+      
+      const token = signToken(user)
+      return { user, token }
+    }, 
+    addDecision: async (parent, args, context) => {
+      console.log(context.user)
+      if(context.user) {
+        const decision = await Decision.create({
+          ...args,
+          username: context.user.username
+        })
 
-      return user
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $push: { decisions: decision.id } },
+          { new: true }
+        )
+
+        return decision
+      }
+      else {
+        console.log('no user context')
+      }
+
+      throw new AuthenticationError('you need to be logged in')
+    },
+    updateDecision: async (parent, { _id, decisionText }, context) => {
+      const decision = await Decision.findOneAndUpdate(
+        { _id: _id},
+        { decisionText: decisionText },
+        { new: true }
+      )
+
+      return decision
+    },
+    deleteDecision: async (parent, { _id }, context) => {
+      return Decision.findOneAndDelete(
+        { _id: _id }
+      )
     }
   }
 }
