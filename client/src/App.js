@@ -5,7 +5,7 @@
 //   ApolloProvider,
 //   createHttpLink,
 // } from '@apollo/client';
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Nav from './components/Nav/'
 
 // const httpLink = createHttpLink({
@@ -32,22 +32,25 @@ import Footer from './components/Footer';
 import Login from './components/LoginSignUpPortal'
 import AddOption from './components/AddOption';
 
-
 function App() {
   
     return (
-      <div>
-        <Nav></Nav>
-        <main>
-        <RandomPortal></RandomPortal>
-        <AddOption></AddOption>
-        <ListPortal></ListPortal>
-        <Login></Login>
-        </main>
-        <Footer></Footer>
-      </div>
+      <Router>
+        <div>
+          <Nav />
+          <main className='content'>
+            <Routes>
+              <Route path="/" element={<Login />} />
+              <Route path="/add-option" element={<AddOption />} />
+              <Route path="/decision-time" element={<RandomPortal />} />
+              <Route path="/list-portal" element={<ListPortal />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </Router>
     );
-    }
+};
 
 
 export default App;
