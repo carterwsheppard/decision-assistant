@@ -15,22 +15,30 @@ function ListPortal() {
       return <p className = {'modalContainer'}>{item.decisionText}</p>
     }
 
-            return (
-            <div>
-                <div className = {'modalContainer'}>
-                
-                </div>
-            <h4 className = {'modalContainer'}>
-            List of Options for {decisions[0].username}
-            </h4>
-            {decisions.map(decision => (
-              getListDesc(decision)
-            ))}
-            <div className = {'modalContainer'}>
-            <button onClick={() => window.location.reload(false)}>Reset List Options</button>
-            </div>
-            </div>
-            )
-          }
+    return (
+    <div>
+        <div className = {'modalContainer'}>
+        
+        </div>
+      <h4 className = {'modalContainer'}>
+        List of Options for {loading ? (
+          <div>Loading...</div>
+        ) : (
+          decisions[0].username
+        )}
+      </h4>
+      {loading ? (
+        <div>Loading...</div>
+      ) : (
+        decisions.map(decision => (
+          getListDesc(decision)
+        ))
+      )}
+      <div className = {'modalContainer'}>
+      <button onClick={() => window.location.reload(false)}>Reset List Options</button>
+      </div>
+      </div>
+    )
+  }
 
 export default ListPortal;
