@@ -359,7 +359,7 @@ background-position: 80%;
   border-radius: 15px;
   position: relative;
   /*text-shadow: -1px 0 grey, 0 1px grey, 1px 0 grey, 0 -1px grey;*/
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  /*text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);*/
 }
 
 .contact-form h3 {
@@ -384,7 +384,7 @@ background-position: 80%;
   font-style: italic;
   font-size: 42px;
   color: var(--textcolor);
-  text-shadow: 0 0 10px rgba(255,255,255, 0.5);
+  /*text-shadow: 0 0 10px rgba(255,255,255, 0.5)*/;
 }
 
 .form-input {
