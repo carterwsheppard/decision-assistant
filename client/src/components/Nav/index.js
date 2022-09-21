@@ -1,5 +1,5 @@
 import React from "react";
-import photo123 from "../../images/D.png"
+import photo123 from "../../images/DECISION ASSISTANT.gif"
 // import { capitalizeFirstLetter } from "../../utils/helpers";
 
 function Nav() {
