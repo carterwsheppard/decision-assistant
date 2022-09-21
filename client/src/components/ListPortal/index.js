@@ -7,8 +7,9 @@ import { useQuery } from "@apollo/client"
 
 function ListPortal() {
     //need to replace with API route and then a random item from the returned array using rand number above
-    const Options = useQuery(QUERY_DECISIONS);
-    console.log(Options)
+    const { loading, data } = useQuery(QUERY_DECISIONS)
+    const decisions = data?.decisions || []
+    console.log(decisions)
 
     function getListDesc(item) {
       return <p className = {'modalContainer'}>{item.decisionText}</p>
@@ -20,9 +21,11 @@ function ListPortal() {
                 
                 </div>
             <h4 className = {'modalContainer'}>
-           List of Options for {Options[0].username}
+            List of Options for {decisions[0].username}
             </h4>
-            {Options.map(getListDesc)}
+            {decisions.map(decision => (
+              getListDesc(decision)
+            ))}
             <div className = {'modalContainer'}>
             <button onClick={() => window.location.reload(false)}>Reset List Options</button>
             </div>
