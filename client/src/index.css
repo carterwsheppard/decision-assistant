@@ -324,7 +324,7 @@ header {
   /*background-image: url(./assets/images/banner.png);
   background-size: 100%;*/
   position: sticky;
-  text-shadow: 0 0 10px rgba(255,255,255, 0.5);
+  /*text-shadow: 0 0 10px rgba(255,255,255, 0.5);*/
   height: 100px;
   align-items: center;
   position: sticky;
@@ -531,5 +531,5 @@ text-align: left;
 padding-bottom: 10px;
 width: 18%;
 font-style: italic;
-text-shadow: 0 0 10px rgba(255,255,255, 0.5);
+/*text-shadow: 0 0 10px rgba(255,255,255, 0.5);*/
 }
