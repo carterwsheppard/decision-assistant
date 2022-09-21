@@ -353,7 +353,7 @@ background-position: 80%;
   opacity: 0.8;
   padding: 20px;
   color: var(--textcolor);
-  width: 50%;
+  width: 100%;
   margin: 3.5%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   border-radius: 15px;
@@ -365,6 +365,7 @@ background-position: 80%;
 .contact-form h3 {
   font-size: 24px;
   margin: 0;
+  font-weight: bold;
 }
 .contact-form p {
   margin: 5px 0 15px 0;
@@ -409,15 +410,18 @@ background-position: 80%;
 
 .contact-form button {
   color: var(--textcolor);
-  background-color: var(--primary);
-  border: none;
+  background-color: white;
+  border: solid;
+  border-color: black;
+  border-radius: 10px;
   padding: 10px 20px;
   font-size: 18px;
   border-radius: 10px;
+
 } 
 
 .contact-form button:hover {
-  background-color: var(--background);  
+  background-color:var(--primary);  
 }
 
 .radio-wrapper input {

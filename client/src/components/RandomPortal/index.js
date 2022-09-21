@@ -8,6 +8,7 @@ var rn = require('random-number');
 
 function RandomPortal() {
     //need to replace with API route and then a random item from the returned array using rand number above
+     
     const randomOption = [{
       username: "testUser",
         decisionText:
