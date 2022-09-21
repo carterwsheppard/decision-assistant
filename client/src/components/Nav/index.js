@@ -1,4 +1,5 @@
 import React from "react";
+import photo123 from "../../images/D.png"
 // import { capitalizeFirstLetter } from "../../utils/helpers";
 
 function Nav() {
@@ -9,11 +10,11 @@ function Nav() {
 
   return (
     <header data-testid="header" className="flex-row px-1">
-      <h2>
+      
         <a href="/" className="italic">
-          Decision Assistant 
+        <img className = {'img-thumbnail'} alt='Decision Assistant Logo' src = {photo123}/>
         </a>
-      </h2>
+     
       <nav>
         <ul className="flex-row">
           <li className={"mx-2"}>
