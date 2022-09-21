@@ -15,6 +15,9 @@ import Footer from './components/Footer';
 import Login from './components/LoginSignUpPortal'
 import AddOption from './components/AddOption';
 
+const httpLink = createHttpLink({
+  uri: '/graphql'
+})
 
  const authLink = setContext((_, { headers }) => {
    const token = localStorage.getItem('id_token')
@@ -27,17 +30,12 @@ import AddOption from './components/AddOption';
    }
  })
 
+
+
  const client = new ApolloClient({
    link: authLink.concat(httpLink),
    cache: new InMemoryCache()
  })
-
- 
-import RandomPortal from './components/RandomPortal';
-import ListPortal from './components/ListPortal';
-import Footer from './components/Footer';
-import Login from './components/LoginSignUpPortal'
-import AddOption from './components/AddOption';
 
 
 function App() {
