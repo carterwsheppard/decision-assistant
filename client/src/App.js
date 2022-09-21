@@ -4,20 +4,26 @@
    InMemoryCache,
    ApolloProvider,
    createHttpLink,
- } from '@apollo/client';
+} from '@apollo/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Nav from './components/Nav/'
+import RandomPortal from './components/RandomPortal';
+import ListPortal from './components/ListPortal';
+import Footer from './components/Footer';
+import Login from './components/LoginSignUpPortal'
+import AddOption from './components/AddOption';
 
  const httpLink = createHttpLink({
    uri: '/graphql'
  })
 
  const authLink = setContext((_, { headers }) => {
-   // TODO: add token
+   const token = localStorage.getItem('id_token')
+
    return {
      headers: {
        ...headers,
-       authorization: ''
+       authorization: token ? `Bearer ${token}` : ''
      }
    }
  })
@@ -26,17 +32,12 @@ import Nav from './components/Nav/'
    link: authLink.concat(httpLink),
    cache: new InMemoryCache()
  })
- 
-import RandomPortal from './components/RandomPortal';
-import ListPortal from './components/ListPortal';
-import Footer from './components/Footer';
-import Login from './components/LoginSignUpPortal'
-import AddOption from './components/AddOption';
 
 function App() {
   
     return (
-      <Router>
+      <ApolloProvider client={client}>
+        <Router>
         <div>
           <Nav />
           <main className='content'>
@@ -44,12 +45,12 @@ function App() {
               <Route path="/" element={<Login />} />
               <Route path="/add-option" element={<AddOption />} />
               <Route path="/decision-time" element={<RandomPortal />} />
-              <Route path="/list-portal" element={<ListPortal />} />
             </Routes>
           </main>
           <Footer />
         </div>
       </Router>
+    </ApolloProvider> 
     );
 };
 
