@@ -109,6 +109,7 @@ a:hover {
 header {
   background: var(--dark);
   color: var(--light);
+  font-family: ;
 }
 
 header a {
@@ -328,6 +329,7 @@ header {
   height: 100px;
   align-items: center;
   position: sticky;
+  vertical-align: middle;
 }
 
 .italic {
