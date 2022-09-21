@@ -18,17 +18,17 @@ function Nav() {
         <ul className="flex-row">
           <li className={"mx-2"}>
             <span onClick={() => handleClick()}>
-              Login / Sign Up
+              <a href="/">Login / Sign Up</a>
             </span>
           </li>
           <li className={"mx-2"}>
             <span onClick={() => handleClick()}>
-              Manage List
+              <a href="add-option">Manage List</a>
             </span>
           </li>
           <li className={"mx-2"}>
             <span onClick={() => handleClick()}>
-            Decision Time
+            <a href="decision-time">Decision Time</a>
             </span>
           </li>
         </ul>
