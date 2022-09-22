@@ -6,7 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+/*  #00FFFF  */
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -19,8 +19,8 @@ main {
   
 }
 :root {
-  --primary: #8c54ff;
-  --secondary: #F3A847;
+  --primary: #34B3F5;
+  --secondary: #FF0000;
   --tertiary: #B12704;
   --light: #fafafa;
   --dark: #000000;
@@ -103,17 +103,21 @@ a {
 }
 
 a:hover {
-  text-decoration: underline #8c54ff;
+  text-decoration: underline var(--primary);
 }
 
 header {
   background: var(--dark);
   color: var(--light);
-  font-family: ;
+  /*font-family: ;*/
 }
 
 header a {
   color: var(--light);
+}
+
+header nav a:hover {
+  color: var(--primary);
 }
 
 button {
@@ -193,6 +197,11 @@ textarea {
 .flex-row {
   display: flex;
   flex-wrap: wrap;
+}
+
+.space-around {
+  display: flex;
+  justify-content: space-around;
 }
 
 .space-between {
