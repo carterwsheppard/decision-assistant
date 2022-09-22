@@ -45,12 +45,7 @@ function Login() {
     }
 
     return (
-<<<<<<< HEAD
         <div className="flex space-around">
-=======
-        <div className="flex-row space-around">
-            <div className="flex center">
->>>>>>> 61a5d0363bcb8376815f110fb466f294cd8271fd
             <div>
                 <form 
                     className="flex contact-form" 
@@ -86,10 +81,6 @@ function Login() {
                     <br></br>
                     <button type="submit">Submit</button>
                 </form>
-<<<<<<< HEAD
-=======
-                </div>
->>>>>>> 61a5d0363bcb8376815f110fb466f294cd8271fd
             </div>
             <div className="center">---OR---</div>
             <div>
@@ -100,7 +91,6 @@ function Login() {
                 >
                     <h3 className="">Signup</h3>
                     <br></br>
-<<<<<<< HEAD
                     <div>
                         <label>Email:</label>
                         <input 
@@ -128,21 +118,6 @@ function Login() {
                     <br></br>
                     <button type="submit">Submit</button>
                 </form>
-=======
-                        <div>
-                        <label>Username:</label>
-                        <input className="form-input" type="text" placeholder="Username" ></input>
-                        </div>
-                        <br></br>
-                        
-                        <label>Password:</label>
-                        <input className="form-input" type="text" placeholder="Password"></input>
-                        <br></br>
-                        <button onClick={() => console.log("Add Submit Logic")}>Submit</button>
-                    </form>
-                </div>
-        <div className="flex center">
->>>>>>> 61a5d0363bcb8376815f110fb466f294cd8271fd
             </div>
         </div>
     );

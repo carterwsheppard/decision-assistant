@@ -10,12 +10,16 @@ function AddOption() {
         decisionText: ''
     })
 
-    const [addedDecision, { error }] = useMutation(MUTATION_ADDDECISION);
+    const [addedDecision, { error }] = useMutation(MUTATION_ADDDECISION)
 
     const handleChange = (event) => {
-        const { name, value } = event.target;
+        const { name, value } = event.target
 
-        setInputState(event.target.value);
+        setInputState({
+            ...inputState,
+            [name]: value
+        });
+        console.log(inputState)
     }
 
     const handleSubmit = async (event) => {
@@ -23,9 +27,10 @@ function AddOption() {
         console.log("I have been clicked");
 
         try {
-            await addedDecision({
-                variables: { inputState }
+            const { data } = await addedDecision({
+                variables: { ...inputState }
             })
+            window.location.reload()
             console.log("I made it this far");
         }
         catch (e) {
@@ -42,7 +47,7 @@ function AddOption() {
             <div className="flex center">
                 <div>
                 
-                <form className="flex contact-form">
+                <form className="flex contact-form" onSubmit={handleSubmit}>
                 <h3 className="">Enter an Option to Add to the List:</h3>
                 <br></br>
                     <label>Summary of Decision Option:</label>
@@ -56,7 +61,7 @@ function AddOption() {
                         onChange={handleChange}
                     />
                     <br></br>
-                    <button onClick={() => {handleSubmit()}}>Submit</button>
+                    <button type="submit">Submit</button>
                 </form>
                 </div>
             </div>
