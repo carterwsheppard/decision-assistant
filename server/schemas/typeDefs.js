@@ -22,7 +22,7 @@ const typeDefs = gql`
     me: User
     users: [User]
     user(username: String!): User
-    decisions(username: String): [Decision]
+    decisions(username: String!): [Decision]
     decision(_id: ID!): Decision
   }
 

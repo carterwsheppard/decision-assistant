@@ -1,7 +1,8 @@
 import React from "react";
 import photo from "../../images/decision_maker.png";
-import { QUERY_DECISIONS } from "../../utils/queries";
+import { QUERY_DECISIONS, QUERY_ME } from "../../utils/queries";
 import { useQuery } from "@apollo/client"
+import Auth from '../../utils/auth'
 //import Auth from "../../utils/auth";
 //import { Link } from "react-router-dom";
 //need to import queries once ready on back end
@@ -9,9 +10,15 @@ import { useQuery } from "@apollo/client"
 var rn = require('random-number');
 
 function RandomPortal() {
-  //need to replace with API route and then a random item from the returned array using rand number above
+  const { loading: userLoading, data: userData} = useQuery(QUERY_ME)
+  if(!userLoading) {
+    console.log(userData)
+  }
+  const username = userData?.me.username
      
-  const { loading, data } = useQuery(QUERY_DECISIONS)
+  const { loading, data } = useQuery(QUERY_DECISIONS, {
+    variables: { username: username }
+  })
   const decisions = data?.decisions || []
   console.log(decisions)
 
@@ -20,9 +27,9 @@ function RandomPortal() {
     max: decisions.length, 
     integer: true
   })
-  
-  if(!loading) {
-    console.log(decisions.length, gen)
+
+  if(!loading && !decisions?.length) {
+    return ( <p>add some decisions</p> )
   }
 
   function getListDesc(item) {

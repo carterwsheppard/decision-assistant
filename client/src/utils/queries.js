@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_DECISIONS = gql`
-  query getDecisions($username: String) {
+  query getDecisions($username: String!) {
     decisions(username: $username) {
       username
       decisionText     
@@ -17,4 +17,14 @@ export const QUERY_DECISION = gql`
     username
   }
 }
+`
+
+export const QUERY_ME = gql`
+  query me {
+    me {
+      _id
+      email
+      username
+    }
+  }
 `
