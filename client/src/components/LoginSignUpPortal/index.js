@@ -45,14 +45,14 @@ function Login() {
     }
 
     return (
-        <div className="flex center">
+        <div className="flex space-around">
             <div>
                 <form 
                     className="flex contact-form" 
                     id="loginForm" 
                     onSubmit={handleFormLogin}
                 >
-                    <h3 className="">Login or Sign Up!</h3>
+                    <h3 className="">Login</h3>
                     <br></br>
                     <div>
                         <label>Email:</label>
@@ -77,6 +77,43 @@ function Login() {
                         id="password"
                         value={formState.password}
                         onChange={handleChange}
+                    />
+                    <br></br>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            <div className="center">---OR---</div>
+            <div>
+                <form 
+                    className="flex contact-form" 
+                    id="loginForm" 
+                    //onSubmit={handleFormLogin}
+                >
+                    <h3 className="">Signup</h3>
+                    <br></br>
+                    <div>
+                        <label>Email:</label>
+                        <input 
+                            className="form-input" 
+                            type="email" 
+                            placeholder="Email"
+                            name="email"
+                            id="email"
+                            value={formState.email}
+                            //onChange={handleChange}
+                        />
+                    </div>
+                    <br></br>
+                    
+                    <label>Password:</label>
+                    <input 
+                        className="form-input" 
+                        type="password" 
+                        placeholder="Password"
+                        name="password"
+                        id="password"
+                        value={formState.password}
+                        //onChange={handleChange}
                     />
                     <br></br>
                     <button type="submit">Submit</button>
