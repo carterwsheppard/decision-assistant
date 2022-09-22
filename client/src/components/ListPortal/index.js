@@ -14,6 +14,11 @@ function ListPortal() {
 
     const [deleteDecisions, {error}] = useMutation(MUTATION_DELETEALLDECISIONS)
 
+    function deleteEm() {
+      deleteDecisions()
+      window.location.reload(false)
+    }
+
     function getListDesc(item) {
       return <p className = {'modalContainer'}>{item.decisionText}</p>
     }
@@ -57,7 +62,7 @@ function ListPortal() {
 
       )}
       <div className = {'modalContainer'}>
-      <button onClick={deleteDecisions}>Reset List Options</button>
+      <button onClick={deleteEm}>Reset List Options</button>
       {error ? (
           <div>
             <p className="error-text">Error: The provided credentials are incorrect</p>
