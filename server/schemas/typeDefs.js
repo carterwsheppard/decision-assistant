@@ -32,6 +32,7 @@ const typeDefs = gql`
     addDecision(decisionText: String!): Decision
     updateDecision(_id: ID!, decisionText: String!): Decision
     deleteDecision(_id: ID!): Decision
+    deleteAllDecisions: Auth
   }
 `
 
