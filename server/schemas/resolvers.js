@@ -89,6 +89,9 @@ const resolvers = {
       return Decision.findOneAndDelete(
         { _id: _id }
       )
+    },
+    deleteAllDecisions: async (parent, args, context) => {
+      return Decision.deleteMany()
     }
   }
 }

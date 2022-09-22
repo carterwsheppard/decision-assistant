@@ -12,3 +12,13 @@ export const MUTATION_LOGIN = gql`
   }
 }
 `
+
+export const MUTATION_DELETEALLDECISIONS = gql`
+  mutation deleteAllDecisions {
+  deleteAllDecisions {
+    user {
+      username
+      }
+    }
+  }
+`
