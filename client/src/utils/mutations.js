@@ -8,7 +8,35 @@ export const MUTATION_LOGIN = gql`
       _id
       email
       username
+      }
     }
   }
-}
+`
+
+export const MUTATION_ADDDECISION = gql`
+  mutation addDecision($decisionText: String!) {
+  addDecision(decisionText: $decisionText) {
+    _id
+    decisionText
+    username
+    }
+  }
+`
+
+export const MUTATION_UPDATEDECISION = gql`
+  mutation updateDecision($id: ID!, $decisionText: String!) {
+  updateDecision(_id: $id, decisionText: $decisionText) {
+    _id
+    decisionText
+    username
+    }
+  }
+`
+
+export const MUTATION_DELETEDECISION = gql`
+  mutation deleteDecision($id: ID!) {
+  deleteDecision(_id: $id) {
+    _id
+    }
+  }
 `

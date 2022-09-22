@@ -8,3 +8,13 @@ export const QUERY_DECISIONS = gql`
     }
   }
 `;
+
+export const QUERY_DECISION = gql`
+  query getDecision($id: ID!) {
+  decision(_id: $id) {
+    _id
+    decisionText
+    username
+  }
+}
+`
