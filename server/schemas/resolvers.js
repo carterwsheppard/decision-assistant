@@ -38,6 +38,9 @@ const resolvers = {
 
       return { token, user }
     }, 
+    deleteAllUsers: async (parent, args) => {
+      return User.deleteMany()
+    },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email })
 

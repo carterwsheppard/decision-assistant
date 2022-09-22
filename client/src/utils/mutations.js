@@ -49,3 +49,15 @@ export const MUTATION_DELETEALLDECISIONS = gql`
     }
   }
 `
+
+export const MUTATION_SIGNUP = gql` 
+  mutation addUser($username: String!, $email: String!, $password: String!) {
+    addUser(username: $username, email: $email, password: $password) {
+      token
+      user {
+        _id
+        email
+        username
+      }
+    }
+}`
