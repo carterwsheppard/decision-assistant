@@ -37,9 +37,8 @@ export const MUTATION_DELETEDECISION = gql`
   mutation deleteDecision($id: ID!) {
   deleteDecision(_id: $id) {
     _id
-      }
     }
-  }
+  } 
 `
 export const MUTATION_DELETEALLDECISIONS = gql`
   mutation deleteAllDecisions {
