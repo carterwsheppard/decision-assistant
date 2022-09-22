@@ -1,5 +1,5 @@
 import React from "react";
-import { QUERY_DECISIONS } from "../../utils/queries";
+import { QUERY_DECISIONS, QUERY_ME } from "../../utils/queries";
 import { MUTATION_DELETEALLDECISIONS } from "../../utils/mutations";
 import { useQuery , useMutation } from "@apollo/client"
 //import Auth from "../../utils/auth";
@@ -7,10 +7,14 @@ import { useQuery , useMutation } from "@apollo/client"
 //need to import queries once ready on back end
 
 function ListPortal() {
-    //need to replace with API route and then a random item from the returned array using rand number above
-    const { loading, data } = useQuery(QUERY_DECISIONS)
+    const { loading: userLoading, data: userData} = useQuery(QUERY_ME)
+
+
+    const username = userData?.me.username
+    const { loading, data } = useQuery(QUERY_DECISIONS, {
+      variables: { username: username }
+    })
     const decisions = data?.decisions || []
-    console.log(decisions)
 
     const [deleteDecisions, {error}] = useMutation(MUTATION_DELETEALLDECISIONS)
 

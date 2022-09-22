@@ -19,19 +19,16 @@ function AddOption() {
             ...inputState,
             [name]: value
         });
-        console.log(inputState)
     }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log("I have been clicked");
 
         try {
             const { data } = await addedDecision({
                 variables: { ...inputState }
             })
             window.location.reload()
-            console.log("I made it this far");
         }
         catch (e) {
             console.error(e);

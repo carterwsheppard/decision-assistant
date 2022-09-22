@@ -31,7 +31,6 @@ function Login() {
             const { data } = await login({
                 variables: { ...formState }
             })
-            console.log('here')
             Auth.login(data.login.token)
         }
         catch (e) {
@@ -67,12 +66,10 @@ function Login() {
     const handleFormSignup = async (event) => {
         event.preventDefault()
 
-        console.log(signupState)
         try {
             const { data } = await addUser({
                 variables: { ...signupState }
             })
-            console.log(data)
             Auth.login(data.addUser.token)
         }
         catch (e) {

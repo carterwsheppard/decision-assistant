@@ -11,16 +11,14 @@ var rn = require('random-number');
 
 function RandomPortal() {
   const { loading: userLoading, data: userData} = useQuery(QUERY_ME)
-  if(!userLoading) {
-    console.log(userData)
-  }
+
   const username = userData?.me.username
      
   const { loading, data } = useQuery(QUERY_DECISIONS, {
     variables: { username: username }
   })
   const decisions = data?.decisions || []
-  console.log(decisions)
+
 
   var gen = rn.generator({
     min:  0, 
